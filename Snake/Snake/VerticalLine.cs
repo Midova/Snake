@@ -23,6 +23,7 @@ namespace Snake
 
 		public void Draw()
 		{
+
 			foreach (Point p in pList)
 			{
 				p.Draw();
