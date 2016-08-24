@@ -43,9 +43,9 @@ namespace Snake
 			if (direction == Direction.LEFT)
 				CoordinateX = CoordinateX - offset;
 			if (direction == Direction.UP)
-				CoordinateY = CoordinateY + offset;
-			if (direction == Direction.DOWN)
 				CoordinateY = CoordinateY - offset;
+			if (direction == Direction.DOWN)
+				CoordinateY = CoordinateY + offset;
 		}
 
 		public void Clear()

@@ -9,23 +9,23 @@ namespace Snake
 	class Snake : Figure
 	{
 		//направление змейки
-		private Direction _direction;
+		private Direction direction;
 		
 		/// <summary>
 		/// Отрисовка змейки
 		/// </summary>
 		/// <param name="tail">точка хвоста</param>
 		/// <param name="lenght">длинна змейки</param>
-		/// <param name="direction">направление змейки</param>
-		public Snake( Point tail, int length, Direction direction)
+		/// <param name="_direction">направление змейки</param>
+		public Snake( Point tail, int length, Direction _direction)
 		{
-			_direction = direction;
+			direction = _direction;
 
 			pList = new List<Point>();
 			for (int i = 0; i < length; i++)
 			{
 				Point p = new Point(tail);
-				p.Move(i, direction);
+				p.Move(i, _direction);
 				pList.Add(p);
 			}
 		}
@@ -45,8 +45,20 @@ namespace Snake
 		{
 			Point head = pList.Last();
 			Point nextPoint = new Point(head);
-			nextPoint.Move(1, _direction);
+			nextPoint.Move(1, direction);
 			return nextPoint;
+		}
+
+		public void HandleKey(ConsoleKey key)
+		{
+			if (key == ConsoleKey.LeftArrow)
+				direction = Direction.LEFT;
+			if (key == ConsoleKey.RightArrow)
+				direction = Direction.RIGHT;
+			if (key == ConsoleKey.UpArrow)
+				direction = Direction.UP;
+			if (key == ConsoleKey.DownArrow)
+				direction = Direction.DOWN;
 		}
 	}
 }
