@@ -23,6 +23,31 @@ namespace Snake
 			Symbol = _sym;
 		}
 
+		public Point(Point p)
+		{
+			CoordinateX = p.CoordinateX;
+			CoordinateY = p.CoordinateY;
+			Symbol = p.Symbol;
+		}
+
+
+		/// <summary>
+		/// сдвигает точку на растояние offset, в напралении direction
+		/// </summary>
+		/// <param name="offset">расстояние сдвига</param>
+		/// <param name="direction">направление сдвига</param>
+		public void Move(int offset, Direction direction)
+		{
+			if (direction == Direction.RIGHT)
+				CoordinateX = CoordinateX + offset;
+			if (direction == Direction.LEFT)
+				CoordinateX = CoordinateX - offset;
+			if (direction == Direction.UP)
+				CoordinateY = CoordinateY + offset;
+			if (direction == Direction.DOWN)
+				CoordinateY = CoordinateY - offset;
+		}
+
 		public void Draw()
 		{
 			Console.SetCursorPosition(CoordinateX, CoordinateY);
