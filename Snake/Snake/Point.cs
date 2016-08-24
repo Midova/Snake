@@ -48,6 +48,12 @@ namespace Snake
 				CoordinateY = CoordinateY - offset;
 		}
 
+		public void Clear()
+		{
+			Symbol = ' ';
+			Draw();
+		}
+
 		public void Draw()
 		{
 			Console.SetCursorPosition(CoordinateX, CoordinateY);
