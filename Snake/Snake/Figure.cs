@@ -8,9 +8,14 @@ namespace Snake
 {
 	class Figure
 	{
+		/// <summary>
+		/// фигура- список точек
+		/// </summary>
 		protected List<Point> pList;
-		
 
+		/// <summary>
+		/// отрисовка фигуры
+		/// </summary>
 		public void Draw()
 		{
 

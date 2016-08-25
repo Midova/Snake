@@ -48,12 +48,18 @@ namespace Snake
 				CoordinateY = CoordinateY + offset;
 		}
 
+		/// <summary>
+		/// стираем точку
+		/// </summary>
 		public void Clear()
 		{
 			Symbol = ' ';
 			Draw();
 		}
 
+		/// <summary>
+		/// отрисовываем точку
+		/// </summary>
 		public void Draw()
 		{
 			Console.SetCursorPosition(CoordinateX, CoordinateY);

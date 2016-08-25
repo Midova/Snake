@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 namespace Snake
 {
 	class HorizontaLline : Figure
-	{		
+	{
+		/// <summary>
+		/// созадние горизонтальной линии
+		/// </summary>
+		/// <param name="xLeft">координата х начала</param>
+		/// <param name="xRight">координата х конца</param>
+		/// <param name="y"> координата у</param>
+		/// <param name="sym">симол</param>
 		public HorizontaLline(int xLeft, int xRight, int y, char sym)
 		{
 			pList = new List<Point>();

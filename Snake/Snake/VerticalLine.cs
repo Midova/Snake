@@ -8,6 +8,13 @@ namespace Snake
 {
 	class VerticalLine : Figure
 	{	
+		/// <summary>
+		/// Создание вертикальной линии
+		/// </summary>
+		/// <param name="x">коррдината х линии</param>
+		/// <param name="yTop">координата у начала</param>
+		/// <param name="yDeep">координата у конца</param>
+		/// <param name="sym"> символ</param>
 		public VerticalLine(int x, int yTop, int yDeep, char sym)
 		{
 			pList = new List<Point>();

@@ -12,7 +12,7 @@ namespace Snake
 		private Direction direction;
 		
 		/// <summary>
-		/// Отрисовка змейки
+		/// Создание змейки
 		/// </summary>
 		/// <param name="tail">точка хвоста</param>
 		/// <param name="lenght">длинна змейки</param>
@@ -30,6 +30,9 @@ namespace Snake
 			}
 		}
 
+		/// <summary>
+		/// Сдвиг змейки (дорисовываем точку "голова", стираем точку "хвост")
+		/// </summary>
 		internal void Move()
 		{
 			Point tail = pList.First();
@@ -41,6 +44,10 @@ namespace Snake
 			head.Draw();
 		}
 
+		/// <summary>
+		/// Возвращает следующую точку
+		/// </summary>
+		/// <returns>возвращает следующую точку( координаты)</returns>
 		public Point GetNextPoint()
 		{
 			Point head = pList.Last();
@@ -49,6 +56,10 @@ namespace Snake
 			return nextPoint;
 		}
 
+		/// <summary>
+		/// реакция на нажатие клавиши- змейка меняет направление
+		/// </summary>
+		/// <param name="key">направление движения змейки</param>
 		public void HandleKey(ConsoleKey key)
 		{
 			if (key == ConsoleKey.LeftArrow)
