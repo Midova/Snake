@@ -69,8 +69,8 @@ namespace Snake
 		/// <summary>
 		/// сравнение координат этой точки с точкой в скобках
 		/// </summary>
-		/// <param name="p"> точка для сравнения</param>
-		/// <returns>да- если совпадают</returns>
+		/// <param name="p"> точка для сравнения </param>
+		/// <returns> да-если совпадают </returns>
 		public bool IsHit(Point p)
 		{
 			return p.CoordinateX == this.CoordinateX && p.CoordinateY == this.CoordinateY;
