@@ -26,21 +26,40 @@ namespace Snake
 
 			//Отрисовка точки
 			Point p = new Point(4, 5, '*');
+			//создаем змейку и отрисовываем ее
 			Snake snake = new Snake(p, 4, Direction.RIGHT);
 			snake.Draw();
 
+			//запускаем создатель еды в границах нашей карты
+			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+			//создаем еду и отрисовываем ее
+			Point food = foodCreator.CreaterFood();
+			food.Draw();
 
 
 			while (true)
 			{
+				//ест ли змейка еду (встретилась ли с едой)
+				if (snake.Eat(food))
+				{
+					//появляется новая еда
+					food = foodCreator.CreaterFood();
+					food.Draw();
+				}
+				else
+					//продолжаем движение дальше
+					snake.Move();
+
+				Thread.Sleep(300);
+
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
 					snake.HandleKey(key.Key);
 				}
 
-				Thread.Sleep(100);
-				snake.Move();
+				
+				//snake.Move();
 			}
 
 

@@ -45,6 +45,27 @@ namespace Snake
 		}
 
 		/// <summary>
+		/// съела ли змейка еду на этом ходу
+		/// </summary>
+		/// <param name="food">точка "еда"</param>
+		/// <returns>да- если съела</returns>
+		internal bool Eat(Point food)
+		{
+			//будущая голова- где будет голова в следующий момент времени
+			Point head = GetNextPoint();
+			//если координаты головы и еды совпадают
+			if (head.IsHit(food))
+			{
+				//змейка удлиняется, меняем точку еда
+				food.Symbol = head.Symbol;
+				pList.Add(food);
+				return true;
+			}
+			else
+				return false;
+		}
+
+		/// <summary>
 		/// Возвращает следующую точку
 		/// </summary>
 		/// <returns>возвращает следующую точку( координаты)</returns>
