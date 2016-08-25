@@ -50,16 +50,15 @@ namespace Snake
 					//продолжаем движение дальше
 					snake.Move();
 
-				Thread.Sleep(300);
+				Thread.Sleep(100);
 
+				//нажата ли кнопка
 				if (Console.KeyAvailable)
 				{
 					ConsoleKeyInfo key = Console.ReadKey();
+					//змейка меняет напраление
 					snake.HandleKey(key.Key);
 				}
-
-				
-				//snake.Move();
 			}
 
 
