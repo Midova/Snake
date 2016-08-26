@@ -45,6 +45,24 @@ namespace Snake
 		}
 
 		/// <summary>
+		/// столкнулась ли змейка со своим хвостом
+		/// </summary>
+		/// <returns>да- если координаты совпадают</returns>
+		internal bool IsHitTail()
+		{
+			//получаем координаты головы
+			var head = pList.Last();
+
+			//делаем перебор по всему телу
+			for (int i = 0; i < pList.Count -2; i++)
+			{
+				if (head.IsHit(pList[i]))
+					return true;
+			}
+			return false;
+		}
+
+		/// <summary>
 		/// съела ли змейка еду на этом ходу
 		/// </summary>
 		/// <param name="food">точка "еда"</param>

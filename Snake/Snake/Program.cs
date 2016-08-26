@@ -14,16 +14,10 @@ namespace Snake
 			Console.SetWindowSize(80,25);
 			Console.SetBufferSize(80, 25);
 
-			//Отрисовка рамочки
-			HorizontaLline upLine = new HorizontaLline(0, 78, 0, '+');
-			HorizontaLline downLine = new HorizontaLline(0,78,24,'+');
-			VerticalLine leftLine = new VerticalLine(0, 0, 24, '+');
-			VerticalLine rightLine = new VerticalLine(78, 0, 24, '+');
-			upLine.Draw();
-			downLine.Draw();
-			leftLine.Draw();
-			rightLine.Draw();
-
+			//создаем рамку из преград
+			Walls walls = new Walls(80, 25);
+			walls.Drow();
+			
 			//Отрисовка точки
 			Point p = new Point(4, 5, '*');
 			//создаем змейку и отрисовываем ее
@@ -32,6 +26,7 @@ namespace Snake
 
 			//запускаем создатель еды в границах нашей карты
 			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+			
 			//создаем еду и отрисовываем ее
 			Point food = foodCreator.CreaterFood();
 			food.Draw();
@@ -39,6 +34,10 @@ namespace Snake
 
 			while (true)
 			{
+				//столкнулась ли змейка с преградой или с собственным хвостом
+				if (walls.IsHit(snake) || snake.IsHitTail())
+					break;
+				
 				//ест ли змейка еду (встретилась ли с едой)
 				if (snake.Eat(food))
 				{
