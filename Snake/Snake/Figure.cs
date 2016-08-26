@@ -18,11 +18,39 @@ namespace Snake
 		/// </summary>
 		public void Draw()
 		{
+			foreach (Point p in pList)			
+				p.Draw();			
+		}
 
-			foreach (Point p in pList)
+		/// <summary>
+		/// проверка на пересечение точек
+		/// </summary>
+		/// <param name="figure">фигура для пересечения</param>
+		/// <returns> true -если точки совпадают</returns>
+		internal bool IsHit(Figure figure)
+		{
+			foreach (var p in pList)
 			{
-				p.Draw();
+				//пересикается ли фигура с точкой
+				if (figure.IsHit(p))
+					return true;
 			}
+			return false;
+		}
+
+		/// <summary>
+		/// пересикается ли фигура с точкой
+		/// </summary>
+		/// <param name="point">точка (координаты)</param>
+		/// <returns>true - если координаты совпадают</returns>
+		private bool IsHit(Point point)
+		{
+			foreach (var p in pList)
+			{
+				if (p.IsHit(point))
+					return true;
+			}
+			return false;
 		}
 	}
 }
